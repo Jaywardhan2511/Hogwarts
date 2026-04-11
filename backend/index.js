@@ -1,11 +1,13 @@
-// server/index.js
+const connectDB = require('./config/db');
 const express = require("express");
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hogwarts API running ⚡");
-});
+app.use('/api/students', require('./routes/studentRoutes'));
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+connectDB().then(() => {
+  app.listen(5000, () => {
+    console.log("Server running on port 5000");
+  });
+});
