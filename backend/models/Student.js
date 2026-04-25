@@ -17,7 +17,7 @@ const studentSchema = new mongoose.Schema({
   },
   year: {
     type: Number
-  },
+  }, 
   contactNo: {
     type: String,
     minlength: 10,
@@ -28,4 +28,4 @@ const studentSchema = new mongoose.Schema({
   }
 },{ timestamps: true });
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.models.Student || mongoose.model('Student', studentSchema);

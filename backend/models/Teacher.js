@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const teacherSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true 
   },
   employeeId: {
     type: String,
@@ -40,4 +40,4 @@ const teacherSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Teacher', teacherSchema);
+module.exports = mongoose.models.Teacher ||mongoose.model('Teacher', teacherSchema);
